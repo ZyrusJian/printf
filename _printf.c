@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 int process_format(const char *format, va_list args)
 {
 	int i, int_arg, count = 0;
+	unsigned int b_args;
 
 	for (i = 0; format[i]; i++)
 	{
@@ -54,6 +55,10 @@ int process_format(const char *format, va_list args)
 				break;
 			case 's':
 				count += print_str(args);
+				break;
+			case 'b':
+				b_args = va_arg(args, unsigned int);
+				count += print_binary(b_args);
 				break;
 			case 'd':
 			case 'i':
