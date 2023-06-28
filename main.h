@@ -14,5 +14,6 @@ int _putchar(char c);
 int print_char(va_list args);
 int print_str(va_list args);
 int _printf(const char *format, ...);
+int print_integer(int n);
 
 #endif /* _MAIN_H_ */

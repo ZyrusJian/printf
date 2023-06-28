@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 
 int process_format(const char *format, va_list args)
 {
-	int i, count = 0;
+	int i, int_arg, count = 0;
 
 	for (i = 0; format[i]; i++)
 	{
@@ -54,6 +54,11 @@ int process_format(const char *format, va_list args)
 				break;
 			case 's':
 				count += print_str(args);
+				break;
+			case 'd':
+			case 'i':
+				int_arg = va_arg(args, int);
+				count += print_integer(int_arg);
 				break;
 			case '%':
 				count += _putchar('%');
